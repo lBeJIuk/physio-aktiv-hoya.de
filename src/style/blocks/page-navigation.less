@@ -34,12 +34,14 @@
 
 .page-navigation__item{
 	margin-right: 5px;
+
 }
 
-.page-navigation__item a{
+.page-navigation__item>a{
 	line-height: 50px;
 
-	display: inline-block;
+	display: flex;
+	// position: relative;
 
 	height: 50px;
 	padding-right: 10px;
@@ -52,19 +54,103 @@
 	border-radius: 5px;
 }
 
-.page-navigation__item--active a{
+.page-navigation__item--active>a{
 	color: #fff;
 	background-image: linear-gradient(to top ,#d47138, #f2836d);
 }
 
-.page-navigation__item a:hover{
+.page-navigation__item > a:hover{
+	animation-name: hover-animation;
+	animation-duration: 0.2s;
+	background-image: linear-gradient(to top ,#d47138, #f2836d);
+	color:#fff;
+	// border-bottom: 50px solid white;
+}
+
+.page-navigation__item--active > a:hover{
+	animation-name:none;
+}
+
+
+.second-level-menu{
+	width: 100%;
+	list-style: none;
+	position: relative;
+	z-index: 20;
+	padding: 0;
+	margin: 0;
+	border-radius: 10px;
+	border: 1px solid #454545;
+	border-top: 5px solid #454545;
+	border-bottom: 5px solid #454545;
+	top: 10px;
+	left: 0;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: all 1s;
+	background-color: #454545;
+	line-height: 40px;
+}
+
+.secondl-level-menu__item a{
+	color: #eee;
+	text-decoration: none;
+	display: inline-block;
+	background-color: #454545;
+	margin: 0 ;
+	padding: 0 ;
+	width: 100%;
+	transition: background-color .5s;
+	font-size: 12px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 10;
+	&:hover{
+		background-color: #d47138;
+	}
+}
+
+.second-level-menu::after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #454545;
+	transform: translate(15px,-10px) rotate(55deg) skew(20deg , 0);
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+.page-navigation__item:hover .second-level-menu{
+	transform: scaleY(1);
+}
+
+
+
+.page-navigation__item:nth-child(2){
+	display: flex;
+	position: relative;
+}
+
+.page-navigation__item:nth-child(2):hover > a {
 	animation-name: hover-animation;
 	animation-duration: 0.2s;
 	background-image: linear-gradient(to top ,#d47138, #f2836d);
 	color:#fff;
 }
 
-.page-navigation__item--active a:hover{
+.page-navigation__item:nth-child(2):hover.page-navigation__item--active > a {
 	animation-name:none;
+}
+.second-level-menu{
+	oder:2;
+	position: absolute;
+	margin-top: 50px;
+
+}
+
+.second-level-menu::after{
 }
 
