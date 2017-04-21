@@ -64,7 +64,6 @@
 	animation-duration: 0.2s;
 	background-image: linear-gradient(to top ,#d47138, #f2836d);
 	color:#fff;
-	// border-bottom: 50px solid white;
 }
 
 .page-navigation__item--active > a:hover{
@@ -141,16 +140,15 @@
 	color:#fff;
 }
 
+
 .page-navigation__item:nth-child(2):hover.page-navigation__item--active > a {
 	animation-name:none;
-}
+}//убираем эфект ховера на активном двухуровневом меню
+
 .second-level-menu{
-	oder:2;
+	order:2;
 	position: absolute;
 	margin-top: 50px;
-
-}
-
-.second-level-menu::after{
+	cursor: pointer;
 }
 
