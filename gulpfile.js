@@ -153,7 +153,7 @@ gulp.task('browser-sync', function() {
 });
 //*************************** Static server
 
-gulp.task('git-host', function() {return gulp.src('./public/**/*')
+gulp.task('git-host', function() {return gulp.src(path.public.html)
     .pipe(ghPages());
 });
 
