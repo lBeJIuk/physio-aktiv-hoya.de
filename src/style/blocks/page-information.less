@@ -4,7 +4,7 @@
 }
 
 	.page-information__wraper{
-		width: 936px;
+		max-width: 936px;
 		margin: 0 auto;
 		position: relative;
 	}
@@ -109,6 +109,7 @@
 
 
 .page-information__shadow::before, .page-information__shadow::after{
+// .page-information__shadow::before{
 	content: "";
 	display: inline-block;
 	width: 468px;
@@ -119,14 +120,36 @@
 }
 
 .page-information__shadow::before{
-	left: 50%;
-	margin-left: -450px;
+	// left: 50%;
+	// margin-left: -450px;
 	transform:rotate(-2deg);
+	left: 2%;
 }
 
 
 .page-information__shadow::after{
-	right: 50%;
-	margin-right: -450px;
+	// right: 50%;
+	// margin-right: -450px;
 	transform:rotate(2deg);
+	right: 2%;
+}
+
+@media @tablet-widths{
+	.table__table-item p{
+		font-size: 14px;
+	}
+
+	.table-item__link{
+		width: 160px;
+		height: 160px;
+		line-height: 160px;
+	}
+
+	.wrapper{
+		max-width: 750px;
+	}
+
+	.leistung-img img{
+		
+	}
 }

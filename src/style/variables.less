@@ -1,4 +1,36 @@
+@tablet-widths:~"(min-width : 768px) and (max-width: 1024px) ";
+@mobile-widths:~"(max-width : 767px)";
 
+.after(){
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: red;
+}
+
+.before(){
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: red;
+}
+
+.hide-text() {
+	font: 0/0 a;
+	border: 0;
+	color: transparent;
+	background-color: transparent;
+	text-shadow: none;
+	.box-shadow(none);  
+}
 
 .visualy-hidden{
 	font-size: 0;
@@ -34,3 +66,5 @@
 			background-image: linear-gradient(to top ,darken(#d47138,10%), darken(lighten(#f2836d,5%),10%));
 	}
 }
+
+

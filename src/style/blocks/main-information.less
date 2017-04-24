@@ -133,10 +133,11 @@ td{
 .team-item {
 	margin: 0;
 	margin-top: 40px;
+	width: 25%;
 }
 
 .team-item img{
-	width: 220px;
+	width: 95%;
 	height: auto;
 	border-radius: 50%;
 	box-sizing:border-box;
@@ -152,4 +153,19 @@ td{
 
 iframe{
 	width: 100%;
+}
+
+@media @tablet-widths{
+	.leistung-img {
+		width: 350px;
+		border-bottom: 50px solid #eaeaea;
+	}
+.leistung-img figcaption{
+	height: 50px;
+	line-height: 50px;
+	}
+
+	.team-item{
+		width: 50%;
+	}
 }

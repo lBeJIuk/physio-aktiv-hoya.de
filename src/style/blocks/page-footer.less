@@ -3,7 +3,7 @@
 }
 
 .page-footer__wraper{
-	width: 936px;
+	max-width: 936px;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap:wrap;
@@ -85,4 +85,10 @@
 
 .kontakt__mail::before{
 	background-image: url(../../img/envelope.svg);
+}
+
+@media @tablet-widths{
+	.page-footer__work-time{
+		margin-left: 20px;
+	}	
 }
