@@ -52,18 +52,9 @@ var path = {
 
 
 // ******************* Compiling
-/*gulp.task('less', function () {
-  return combiner(
-   gulp.src(path.src.style),
-   less(),
-   autoPrefixer(),
-   gulp.dest(path.public.css),
-   cleanCSS(),
-   rename({prefix : 'min-'}),
-   gulp.dest(path.public.css)).on('error', notify.onError());
-});*/
-
   
+
+  //less transform
 gulp.task('less', function () {
   return combiner(
    gulp.src(path.src.style),
@@ -76,12 +67,12 @@ gulp.task('less', function () {
 });
 
 
-
+//delete public
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
-
+// compiling HTML
 gulp.task('html', function () {
     return combiner(
         gulp.src(path.src.html),
@@ -89,6 +80,7 @@ gulp.task('html', function () {
         gulp.dest(path.public.html)).on('error', notify.onError());
 });
 
+//minify js
 gulp.task('js', function () {
   return combiner(
     gulp.src(path.src.js),
@@ -97,13 +89,14 @@ gulp.task('js', function () {
         gulp.dest(path.public.js)).on('error', notify.onError());
 });
 
-
+//copy img
 gulp.task('img', function () {
     return combiner(
     gulp.src(path.src.img),
         gulp.dest(path.public.img)).on('error', notify.onError());
 });
 
+//optimization + copy img
 gulp.task('img-optim', function () {
     return combiner(
     gulp.src(path.src.img),
@@ -117,6 +110,7 @@ gulp.task('img-optim', function () {
         gulp.dest(path.public.img)).on('error', notify.onError());
 });
 
+//copy fonts
 gulp.task('fonts', function() {
   return combiner(
     gulp.src(path.src.fonts),
@@ -127,7 +121,7 @@ gulp.task('fonts', function() {
 
 
 
-
+//watcher
 gulp.task('watch' , function(){
   gulp.watch([path.watch.style ], gulp.series('less'));
   gulp.watch([path.watch.html ], gulp.series('html'));
@@ -153,13 +147,18 @@ gulp.task('browser-sync', function() {
 });
 //*************************** Static server
 
+//push to gh-pages, for hosting on Github
 gulp.task('git-host', function() {
-    return gulp.src('./public/**/*')
+    return gulp.src(path.public.html +'**/*')
     .pipe(ghPages());
 });
 
 
+//task for development
 gulp.task('dev' , gulp.series('less' ,'html','js', 'fonts', gulp.parallel('watch' , 'browser-sync')));
 
-
+//task for final test
 gulp.task('build' , gulp.series('clean','less' ,'html','js', 'fonts','img-optim', 'browser-sync'));
+
+//task for final hosting on Github
+gulp.task('deploy' , gulp.series('clean','less' ,'html','js', 'fonts','img-optim','git-host'));
