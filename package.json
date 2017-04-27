@@ -37,7 +37,10 @@
     "gulp-rigger": "^0.5.8",
     "gulp-uglify": "^2.1.2",
     "imagemin-pngquant": "^5.0.0",
+    "postcss": "^5.2.17",
     "rimraf": "^2.6.1",
-    "stream-combiner2": "^1.1.1"
+    "stream-combiner2": "^1.1.1",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
   }
 }
