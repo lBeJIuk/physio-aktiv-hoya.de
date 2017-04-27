@@ -154,7 +154,7 @@ gulp.task('browser-sync', function() {
 //*************************** Static server
 
 gulp.task('git-host', function() {
-    return gulp.src('./public')
+    return gulp.src('./public/**/*')
     .pipe(ghPages());
 });
 
